@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<seelie>
+    <!-- A simple project with just two folders to synchronize -->
+    <project>
+        <name>simple</name>
+        <path tool="git">~/git</path>
+        <path tool="rsync" origin="seelie:~/rsync/">~/rsync</path>
+    </project>
+
+    <project>
+        <name>complicated</name>
+        <path tool="git2">~/git2</path>
+        <!-- In addition to the above project, update everything in the simple
+             project too -->
+        <reference>simple</reference>
+    </project>
+
+    <!-- Don't sync this project unless explicitly asked to -->
+    <project auto="false">
+        <name>sometimes_sync</name>
+        <path tool="git">~/sometimes</path>
+    </project>
+</seelie>
